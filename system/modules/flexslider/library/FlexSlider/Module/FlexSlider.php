@@ -10,7 +10,7 @@
  */
 
  
-namespace Asc\Module;
+namespace FlexSlider\Module;
 
 use Contao\Module as Contao_Module;
 
@@ -90,6 +90,7 @@ class FlexSlider extends Contao_Module {
                 $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/flexslider/assets/js/flexslider-min.js';
             }
 			if ($objTheme->jqeasing != '') {
+				//https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js
                 $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/flexslider/assets/js/jquery.easing.1.3.js';
             }
         }
