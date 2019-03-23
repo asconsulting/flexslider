@@ -1,0 +1,37 @@
+{
+    "name":"asconsulting/flexslider",
+    "description":"Flexslider implementation for Contao CMS",
+    "homepage": "https://andrewstevens.consulting",
+    "keywords":["contao", "flexslider"],
+    "type":"contao-module",
+    "license":"LGPL-3.0-or-later",
+    "authors":[
+        {
+            "name":"Andrew Stevens",
+            "homepage":"https://andrewstevens.consulting"
+        }
+    ],
+    "require":{
+        "php": "~5.4 || ~7.0",
+        "contao/core-bundle": "^3.5.2 || ~4.4",
+        "contao-community-alliance/composer-plugin": "~2.4 || ~3.0"
+    },
+    "require-dev": {
+        "contao/manager-plugin": "^2.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "Asc\\": [
+                "system/modules/asc_flexslider/library"
+            ]
+        }
+    },
+    "extra": {
+        "contao": {
+            "sources": {
+                "system/modules/asc_flexslider": "system/modules/asc_flexslider"
+            }
+        }
+    },
+    "minimum-stability": "dev"
+}
