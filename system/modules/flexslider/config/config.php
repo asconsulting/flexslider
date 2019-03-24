@@ -8,35 +8,48 @@
  * @package    asconsulting/flexslider
  * @link       https://andrewstevens.consulting
  */
- 
 
  
+ 
 /**
- *
- * Backend Modules
- *
+ * Back end modules
  */
-$GLOBALS['BE_MOD']['content']['flexSlider'] = array (
-    
-    'icon'       => 'system/modules/flexslider/assets/images/fs_icon.png',
-    'tables'     => array('tl_flexSlider', 'tl_flexPictures')
-);
+if (!is_array($GLOBALS['BE_MOD']['flexslider']))
+{
+    array_insert($GLOBALS['BE_MOD'], 1, array('flexslider' => array()));
+}
 
-
-/**
- *
- * Frontend Modules
- *
- */
-array_insert($GLOBALS['FE_MOD']['application'], 0, array (
-
-    'flexSlider' => 'ModuleFlexSlider'
+array_insert($GLOBALS['BE_MOD']['flexslider'], 0, array
+( 
+	'flexslider' => array
+	(
+		'tables' => array('tl_flex_slider', 'tl_flex_image')
+	)
 ));
 
 
 /**
- *
+ * Front end modules
+ */ 
+$GLOBALS['FE_MOD']['flexslider']['flexslider'] 	= 'FlexSlider\Module\FlexSlider';
+
+
+/**
  * Content Element
- *
  */
-$GLOBALS['TL_CTE']['media']['flexSlider'] = 'ContentFlexSlider';
+$GLOBALS['TL_CTE']['media']['flexslider'] 		= 'FlexSlider\ContentElement\Flexslider';
+
+
+/**
+ * Models
+ */
+$GLOBALS['TL_MODELS']['tl_flex_slider'] 		= 'FlexSlider\Model\FlexSlider';
+$GLOBALS['TL_MODELS']['tl_flex_image'] 			= 'FlexSlider\Model\FlexImage';
+
+
+/**
+ * Styles
+ */
+ if (version_compare(VERSION, '4.4', '>=')) {
+	$GLOBALS['TL_CSS'][] = 'system/modules/flexslider/assets/css/backend-contao4.css|static';
+}

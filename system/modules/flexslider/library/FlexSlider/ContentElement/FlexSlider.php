@@ -1,94 +1,108 @@
 <?php
 
 /**
- * Contao Open Source CMS
+ * Flex Slider for Contao 4+
  *
- * Copyright (C) 2005-2012 Leo Feyer
+ * Copyright (C) 2018 Andrew Stevens Consulting
  *
- * @package FlexSlider
- * @link    http://www.contao.org
- * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
+ * @package	   asconsulting/flexslider
+ * @link	   https://andrewstevens.consulting
  */
+ 
 
 
 /**
  * Run in a custom namespace, so the class can be replaced
  */
-namespace Asc\ContentElement;
+namespace FlexSlider\ContentElement;
 
-use Contao\ContentElement as Contao_ContentElement
+use FlexSlider\Model\FlexImage as FlexImageModel;
+use FlexSlider\Model\FlexSlider as FlexSliderModel;
+use Contao\ContentElement as Contao_ContentElement;
+use Contao\FilesModel;
+use Contao\Environment;
 
 
-/**
- * Class ContentFlexSlider
- *
- * @copyright  Jozef Dvorský
- * @author     Jozef Dvorský
- * @package    Controller
- */
 class FlexSlider extends Contao_ContentElement {
 
     /**
      * Template
      * @var string
      */
-    protected $strTemplate = 'flexSlider_default';
-
-    public function generate() {
-        
-		// Fallback to the default template
-		if ($this->flexSlider_template == '')
-		{
-			$this->flexSlider_template = 'flexSlider_default';
-		}
-
-		$this->strTemplate = $this->flexSlider_template;
-		
-        if (TL_MODE == 'FE') {
-
-             $objTheme = $this->Database->execute("SELECT css_theme, jqeasing, cssSRC FROM tl_flexSlider WHERE id=$this->select_flexSlider");
-			if ($objTheme->css_theme == '') {
-                $GLOBALS['TL_CSS'][] = 'system/modules/flexslider/assets/css/flexslider_styles.css';
-            }
-            elseif ($objTheme->css_theme == 'custom'){
-				$cssSRC = String::binToUuid($objTheme->cssSRC); 
-				if ($cssSRC != ''){
-				$objFile = \FilesModel::findByUuid($cssSRC);  
-				$GLOBALS['TL_CSS'][] = $objFile->path;
-				}
-				else {
-					if (file_exists('system/modules/flexslider/assets/css/fstyles_custom.css') || is_file('system/modules/flexslider/assets/css/fstyles_custom.css')){
-						$GLOBALS['TL_CSS'][] = 'system/modules/flexslider/assets/css/fstyles_custom.css';
-					}
-					else {
-						$GLOBALS['TL_CSS'][] = 'system/modules/flexslider/assets/css/flexslider_styles.css';
-					}
-				}
-			}
-			else {
-				$GLOBALS['TL_CSS'][] = 'system/modules/flexslider/assets/css/fstyles_'.$objTheme->css_theme.'.css';
-			}
-            if (version_compare(VERSION, '3', '>=')) {
-                $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/flexslider/assets/js/flexslider-min.js|static';
-            }
-            else {
-                $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/flexslider/assets/js/flexslider-min.js';
-            }
-			if ($objTheme->jqeasing != '') {
-                $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/flexslider/assets/js/jquery.easing.1.3.js';
-            }
-        }
-        return parent::generate();
-    }
+    protected $strTemplate = 'ce_flexslider';
+	
 
     /**
      * Generate module
      */
     protected function compile() {
-        $this->Template = new \FrontendTemplate($this->flexSlider_template);
-        $this->import('Database');
-        $flexSlider = new FlexSlider();
-        $flexSlider->compileListPicturesTemplate($this->Database,$this->select_flexSlider, $this->Template);
-    }
+
+		if (TL_MODE == 'FE') {
+			$arrImages = array();
+			
+			FlexImageModel::updatePublished();
+		
+			$objFlexSlider = FlexSliderModel::findByPk($this->flexslider, array('return' => 'Model'));
+			$objFlexImage = FlexImageModel::findBy('pid', $this->flexslider, array('return' => 'Collection'));
+
+			if ($objFlexSlider) {
+				$GLOBALS['TL_CSS'][] = Environment::get('url'). '/flexslider/flexslider.css';
+				$GLOBALS['TL_JAVASCRIPT'][] = Environment::get('url'). '/flexslider/jquery.flexslider-min.js';
+				$this->Template->configuration = $objFlexSlider->row();
+				if ($objFlexSlider->jqeasing) {
+					$GLOBALS['TL_JAVASCRIPT'][] = 'https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js';
+				}
+				
+				if ($objFlexImage->count()) {
+					while($objFlexImage->next()) {
+						$objFile = FilesModel::findByUuid($objFlexImage->singleSRC);
+						if ($objFile) {
+							$arrImage = array();
+							$strImagePath = $objFile->path;
+							$arrImage['singleSRC'] = $strImagePath;
+							$arrImage['alt'] = $objFlexImage->alt;
+							if ($objFlexSlider->imgDesc) {
+								$arrImage['description'] = $objFlexImage->description;
+								$arrImage['fadeDesc'] = $objFlexImage->fadeDesc;
+							}
+							
+							if ($objFlexSlider->imgLinks) {
+								if ($objFlexImage->linkTarget) {
+									if ($objFlexImage->fullsize) {
+										if (preg_match('/\.(jpe?g|gif|png)$/', $objFlexImage->linkTarget)) {
+											if (strncmp($objFlexImage->linkTarget, 'http://', 7) !== 0 && strncmp($objFlexImage->linkTarget, 'https://', 8) !== 0) {
+												$arrImage['linkTarget'] = ' href="' .TL_FILES_URL .$objFlexImage->linkTarget .'"';					
+											} else {
+												$arrImage['linkTarget'] = ' href="' .$objFlexImage->linkTarget .'"';
+											}
+											$arrImage['attributes'] = ' data-lightbox="' .$objSlider->alias . '"';
+										} else {
+											$arrImage['linkTarget'] = ' href="' .$objFlexImage->linkTarget .'"';
+											$arrImage['attributes'] = ' target="_blank"';
+										}
+									} else {
+										$arrImage['linkTarget'] = ' href="' .$objFlexImage->linkTarget .'"';
+									}
+								} elseif ($objFlexImage->fullsize && $objFlexImage->linkTarget == '') {
+									$arrImage['linkTarget'] = ' href="' .$strImagePath .'"';
+									$arrImage['attributes'] = ' data-lightbox="' .$objSlider->alias . '"';
+								}
+							}
+							
+							if ($objFlexImage->cssID) {
+								$arrCss = deserialize($objFlexImage->cssID); 
+								$arrImage['cssID'] = $arrCss[0];
+								$arrImage['cssCLASS'] = $arrCss[1];
+							}
+							$arrImages[$objFlexImage->id] = $arrImage;
+						}
+					}
+				}
+				$this->Template->images = $arrImages;
+			} else {
+				return;
+			}
+		}
+	}
+	
 }
-?>

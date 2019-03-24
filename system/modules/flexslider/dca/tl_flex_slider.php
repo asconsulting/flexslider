@@ -106,14 +106,13 @@ $GLOBALS['TL_DCA']['tl_flex_slider'] = array
     'palettes' => array
     (
 		'__selector__'                => array('carousel', 'css_theme'),
-		'default'                     => '{title_legend},title,alias;{configuration_legend},slideshowSpeed,animationSpeed,animation,direction,css_theme,jqeasing,controlNav,directionNav,randomize,pauseOnHover,imgLinks,imgDesc,carousel;{publish_legend},published'
+		'default'                     => '{title_legend},title,alias;{configuration_legend},slideshowSpeed,animationSpeed,animation,direction,jqeasing,controlNav,directionNav,randomize,pauseOnHover,imgLinks,imgDesc,carousel;{publish_legend},published'
     ),
 	
 	// Subpalettes
 	'subpalettes' => array
 	(
-		 'carousel'                  => 'itemWidth,itemMargin',
-		 'css_theme_custom' 		=> 'cssSRC'
+		 'carousel'                  => 'itemWidth,itemMargin'
 	),
 	
     // Fields
@@ -186,24 +185,6 @@ $GLOBALS['TL_DCA']['tl_flex_slider'] = array
 			'eval'                    => array('includeBlankOption'=>false, 'tl_class'=>'w50'),
             'sql'                     => "varchar(64) NOT NULL default ''"
 		),
-		'css_theme' => array
-		(
-			'label'                   => &$GLOBALS['TL_LANG']['tl_flex_slider']['css_theme'],
-            'default'                 => '',
-			'inputType'               => 'select',
-            'options'                 => array('white', 'black', 'light', 'dark', 'custom'),
-			'reference'               => &$GLOBALS['TL_LANG']['tl_flex_slider'],
-			'eval'                    => array('submitOnChange'=>true, 'includeBlankOption'=>true, 'tl_class'=>'w50'),
-            'sql'                     => "varchar(64) NOT NULL default ''"
-		),
-		'cssSRC' => array
-        (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_flex_slider']['cssSRC'],
-            'exclude'                 => true,
-            'inputType'               => 'fileTree',
-            'eval'                    => array('fieldType' => 'radio', 'files' => true, 'filesOnly' => true, 'extensions' => 'css',  'tl_class'=>'w50 m12'),
-			'sql'                     => "binary(16) NULL"
-        ),
 		'jqeasing' => array
 		(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_flex_slider']['jqeasing'],

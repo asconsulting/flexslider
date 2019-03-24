@@ -14,7 +14,8 @@
 /**
  * Add palettes to tl_module
  */
-$GLOBALS['TL_DCA']['tl_content']['palettes']['flexSlider'] = '{type_legend},type,headline;{flexslider_legend},flexslider;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['flexslider'] = '{type_legend},type,headline;{flexslider_legend},flexslider;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
+
 
 /**
  * Add fields to tl_module
@@ -24,6 +25,6 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['flexslider'] = array
 	'label'                   => &$GLOBALS['TL_LANG']['tl_content']['flexslider'],
 	'exclude'                 => true,
 	'inputType'               => 'radio',
-	'foreignKey'              => 'tl_flexSlider.title',
+	'foreignKey'              => 'tl_flex_slider.title',
 	'eval'                    => array('mandatory'=>true)
 );

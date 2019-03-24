@@ -16,6 +16,8 @@ namespace FlexSlider\Backend;
 use Contao\FilesModel;
 use Contao\Backend as Contao_Backend;
 use Contao\DataContainer;
+use Contao\Database;
+
 
 class FlexImage extends Contao_Backend
 {
@@ -99,7 +101,6 @@ class FlexImage extends Contao_Backend
     
 	
 	public function loadPalette(DataContainer $dc) {
-	
     	if (!$dc->id){
 			return;
     	}
@@ -113,5 +114,10 @@ class FlexImage extends Contao_Backend
 				$GLOBALS['TL_DCA']['tl_flex_image']['palettes']['default']=str_replace('singleSRC', 'singleSRC;{desc_legend},description,fadeDesc,cssID;', $GLOBALS['TL_DCA']['tl_flex_image']['palettes']['default']);
 			}
 		}
+	}
+	
+	public static function updatePublished() {
+		Database::getInstance()->prepare("UPDATE tl_flex_image SET published='1' WHERE start <= ? AND (stop >= ? OR stop='')")->execute(time(), time());
+		Database::getInstance()->prepare("UPDATE tl_flex_image SET published='' WHERE stop <= ? AND stop!=''")->execute(time());
 	}
 }
