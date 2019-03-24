@@ -35,7 +35,7 @@ class SymlinkCommandListener
             return;
         }
 
-        (new Filesystem())->mkdir($this->rootDir . '/flexslider');
+        (new Filesystem())->mkdir($this->rootDir . 'web/flexslider');
 
         SymlinkUtil::symlink('vendor/woocommerce/FlexSlider', 'web/flexslider', $this->rootDir);
     }
