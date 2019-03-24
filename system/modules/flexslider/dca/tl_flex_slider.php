@@ -200,7 +200,7 @@ $GLOBALS['TL_DCA']['tl_flex_slider'] = array
 			'label'                   => &$GLOBALS['TL_LANG']['tl_flex_slider']['controlNav'],
 			'exclude'                 => false,
 			'inputType'               => 'checkbox',
-			'eval'                    => array('tl_class'=>'clr w50 m12')
+			'eval'                    => array('tl_class'=>'clr w50 m12'),
 			'sql'                     => "char(1) NOT NULL default ''"
 		), 
 		'directionNav' => array
@@ -208,7 +208,7 @@ $GLOBALS['TL_DCA']['tl_flex_slider'] = array
 			'label'                   => &$GLOBALS['TL_LANG']['tl_flex_slider']['directionNav'],
 			'exclude'                 => false,
 			'inputType'               => 'checkbox',
-			'eval'                    => array('tl_class'=>'w50 m12')
+			'eval'                    => array('tl_class'=>'w50 m12'),
 			'sql'                     => "char(1) NOT NULL default ''"
 		), 
         'randomize' => array
@@ -216,7 +216,7 @@ $GLOBALS['TL_DCA']['tl_flex_slider'] = array
 			'label'                   => &$GLOBALS['TL_LANG']['tl_flex_slider']['randomize'],
 			'exclude'                 => false,
 			'inputType'               => 'checkbox',
-			'eval'                    => array('isBoolean' => true, 'tl_class'=>'w50 m12')
+			'eval'                    => array('isBoolean' => true, 'tl_class'=>'w50 m12'),
 			'sql'                     => "char(1) NOT NULL default ''"
 		), 
 		'pauseOnHover' => array
