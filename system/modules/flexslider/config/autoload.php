@@ -30,17 +30,17 @@ ClassLoader::addClasses(array
 	'FlexSlider\Frontend\FlexSlider'					=> 'system/modules/flexslider/library/FlexSlider/Frontend/FlexSlider.php',
 
 	// Elements
-	'FlexSlider\Elements\FlexSlider' 	=> 'system/modules/flexslider/library/FlexSlider/Elements/FlexSlider.php',
+	'FlexSlider\Elements\FlexSlider' 					=> 'system/modules/flexslider/library/FlexSlider/Elements/FlexSlider.php',
 
 	// Modules
-	'FlexSlider\Module\FlexSlider'  	=> 'system/modules/flexslider/library/FlexSlider/Module/FlexSlider.php',
+	'FlexSlider\Module\FlexSlider'  					=> 'system/modules/flexslider/library/FlexSlider/Module/FlexSlider.php',
 	
 	// Models
-	'Contao\FlexPicturesModel'  		=> 'system/modules/flexslider/models/FlexPicturesModel.php',
-	'Contao\FlexSliderModel'  			=> 'system/modules/flexslider/models/FlexSliderModel.php',
+	'Contao\FlexPicturesModel'  						=> 'system/modules/flexslider/library/FlexSlider/Model/FlexImage.php',
+	'Contao\FlexSliderModel'  							=> 'system/modules/flexslider/library/FlexSlider/Model/FlexSlider.php',
 	
 	// Contao Manager
-	'FlexSlider\ContaoManager\Plugin'	=> 'system/modules/flexslider/ContaoManager/Plugin.php'
+	'FlexSlider\ContaoManager\Plugin'					=> 'system/modules/flexslider/library/FlexSlider/ContaoManager/Plugin.php'
 ));
 
 
