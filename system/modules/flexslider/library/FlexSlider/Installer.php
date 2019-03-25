@@ -52,8 +52,8 @@ class Installer extends \Controller
 		\File::putContent('/files/flexslider-master.zip', $binRawData);
 		if (is_readable(TL_ROOT .'/files/flexslider-master.zip')) {
 			$zip = new \ZipArchive;
-			if ($zip->open($this->rootDir . '/files/flexslider-master.zip') === TRUE) {
-				$zip->extractTo($this->rootDir . '/var/cache/flexslider/');
+			if ($zip->open(TL_ROOT .'/files/flexslider-master.zip') === TRUE) {
+				$zip->extractTo(TL_ROOT .'/var/cache/flexslider/');
 				$zip->close();
 				
 				$objAssetsFolder = new \Folder('/var/cache/flexslider/FlexSlider-master');
