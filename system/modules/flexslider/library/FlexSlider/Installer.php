@@ -65,7 +65,7 @@ class Installer extends \Controller
 			}
 			unset($objZipReader);
 			$objZipFile = new File('files/flexslider-master.zip');
-			$objZipFile->delete():
+			$objZipFile->delete();
 		}
 		return (empty($arrFiles) ? false : $arrFiles);
     }
