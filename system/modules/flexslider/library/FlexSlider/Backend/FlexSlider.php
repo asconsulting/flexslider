@@ -86,10 +86,10 @@ class FlexSlider extends Contao_Backend
 	{
 		$objFile = new File('files/flexslider/flexslider.css');
 		if ($objFile) {
-			$label = str_replace('Install', 'Update/Re-install', $label);
+			$title = str_replace('Install', 'Update/Re-install', $title);
 		};
 		
-		return $label;
+		return $title;
 	}	
 	
 	
