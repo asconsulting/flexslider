@@ -86,11 +86,9 @@ class FlexSlider extends Contao_Backend
 	{
 		$objFile = new File('files/flexslider/flexslider.css');
 		if ($objFile) {
-			$title = str_replace('Install', 'Update/Re-install', $title);
+			$label = str_replace('Install', 'Update/Re-install', $label);
 		};
 		
-		
-		return $title;
 		return '<a href="'.$this->addToUrl($href).'" title="'.specialchars($title).'"'.$attributes.'>'.\Image::getHtml($icon, $label).'</a> ';
 	}	
 	
