@@ -84,7 +84,7 @@ class FlexSlider extends Contao_Backend
 	 */
 	public function installIcon($href, $label, $title, $icon, $attributes)
 	{
-		if (is_readable('files/flexslider/flexslider.css')) {
+		if (is_readable(TL_ROOT .'/files/flexslider/flexslider.css')) {
 			$label = str_replace('Install', 'Update/Re-install', $label);
 		};
 		
