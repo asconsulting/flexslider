@@ -33,7 +33,23 @@ class Installer extends \Controller
     public function install()
     {
 		$boolSuccess = false;
-		\File::putContent('/files/flexslider-master.zip', fopen("https://github.com/woocommerce/FlexSlider/archive/master.zip", 'r'));
+		$strError = false;
+		$ch = curl_init("https://github.com/woocommerce/FlexSlider/archive/master.zip");
+		curl_setopt($ch, CURLOPT_HEADER, 1);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_BINARYTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
+		$binRawData = curl_exec($ch);
+
+		if (curl_errno($ch)) {
+			$strError = curl_error($ch);
+		}
+		curl_close($ch);
+		if ($strError) {
+			return "Unable to get ZIP file";
+		}
+		
+		\File::putContent('/files/flexslider-master.zip', $binRawData);
 		if (is_readable(TL_ROOT .'/files/flexslider-master.zip')) {
 			$zip = new \ZipArchive;
 			if ($zip->open($this->rootDir . '/files/flexslider-master.zip') === TRUE) {
