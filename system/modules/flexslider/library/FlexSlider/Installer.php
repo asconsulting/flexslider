@@ -46,7 +46,7 @@ class Installer extends \Controller
 		}
 		curl_close($ch);
 		if ($strError) {
-			return "Unable to get ZIP file";
+			return "<h4>Unable to get ZIP file</h4>" .$strError;
 		}
 		
 		\File::putContent('/files/flexslider-master.zip', $binRawData);
