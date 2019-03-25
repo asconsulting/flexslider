@@ -38,6 +38,7 @@ class Installer extends \Controller
      */
     public function install()
     {
+		$arrFiles = array();
 		$boolSuccess = false;
 		$strError = false;
 		
@@ -58,11 +59,15 @@ class Installer extends \Controller
 					$strFilename = substr($objZipReader->file_name, 18);
 					if ($strFilename) {
 						\File::putContent('files/flexslider/' .$strFilename, $objZipReader->unzip());
+						$arrFiles[] = 'files/flexslider/' .$strFilename;
 					}
 				}
 			}
+			unset($objZipReader);
+			$objZipFile = new File('files/flexslider-master.zip');
+			$objZipFile->delete():
 		}
-		return $boolSuccess;
+		return (empty($arrFiles) ? false : $arrFiles);
     }
 
 }
