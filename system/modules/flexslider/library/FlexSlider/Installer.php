@@ -40,6 +40,17 @@ class Installer extends \Controller
     {
 		$boolSuccess = false;
 		$strError = false;
+		
+		$fh = fopen(TL_ROOT .'/files/flexslider-master.zip', 'w');
+		$ch = curl_init()
+		curl_setopt($ch, CURLOPT_URL, "https://github.com/woocommerce/FlexSlider/archive/master.zip"); 
+		curl_setopt($ch, CURLOPT_FILE, $fh); 
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); 
+		curl_exec($ch);
+		curl_close($ch);
+		fclose($fh);
+		
+		/*
 		$ch = curl_init("https://github.com/woocommerce/FlexSlider/archive/master.zip");
 		curl_setopt($ch, CURLOPT_HEADER, 1);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -55,7 +66,10 @@ class Installer extends \Controller
 			return "<h4>Unable to get ZIP file</h4>" .$strError;
 		}
 		
+		
 		file_put_contents(TL_ROOT .'/files/flexslider-master.zip', $binRawData);
+		*/
+		
 		
 	//	\File::putContent('/files/flexslider-master.zip', $binRawData);
 		if (is_readable(TL_ROOT .'/files/flexslider-master.zip')) {
