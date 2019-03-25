@@ -61,6 +61,8 @@ class Installer extends \Controller
 			while ($objZipReader->next()) {
 				echo $objZipReader->file_name .'<br>';
 			}
+			var_dump($objZipReader);
+			die("Maybe?");
 			
 			$zip = new \ZipArchive;
 			if ($zip->open(TL_ROOT .'/files/flexslider-master.zip') === TRUE) {
