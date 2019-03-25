@@ -23,9 +23,6 @@ ClassLoader::addClasses(array
 	// Content Element
 	'FlexSlider\ContentElement\FlexSlider'				=> 'system/modules/flexslider/library/FlexSlider/ContentElement/FlexSlider.php',
 	
-	// Event Listener
-	'FlexSlider\EventListener\SymlinkCommandListener'	=> 'system/modules/flexslider/library/FlexSlider/EventListener/SymlinkCommandListener.php',
-	
 	// Frontend classes
 	'FlexSlider\Frontend\FlexSlider'					=> 'system/modules/flexslider/library/FlexSlider/Frontend/FlexSlider.php',
 
@@ -36,11 +33,11 @@ ClassLoader::addClasses(array
 	'FlexSlider\Module\FlexSlider'  					=> 'system/modules/flexslider/library/FlexSlider/Module/FlexSlider.php',
 	
 	// Models
-	'Contao\FlexPicturesModel'  						=> 'system/modules/flexslider/library/FlexSlider/Model/FlexImage.php',
-	'Contao\FlexSliderModel'  							=> 'system/modules/flexslider/library/FlexSlider/Model/FlexSlider.php',
+	'FlexSlider\Model\FlexImage'  						=> 'system/modules/flexslider/library/FlexSlider/Model/FlexImage.php',
+	'FlexSlider\Model\FlexSlider'  						=> 'system/modules/flexslider/library/FlexSlider/Model/FlexSlider.php',	
 	
-	// Contao Manager
-	'FlexSlider\ContaoManager\Plugin'					=> 'system/modules/flexslider/library/FlexSlider/ContaoManager/Plugin.php'
+	// Frontend classes
+	'FlexSlider\Installer'								=> 'system/modules/flexslider/library/FlexSlider/Installer.php',
 ));
 
 

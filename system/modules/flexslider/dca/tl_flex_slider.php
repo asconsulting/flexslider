@@ -50,7 +50,14 @@ $GLOBALS['TL_DCA']['tl_flex_slider'] = array
             'label_callback' 		=> array('FlexSlider\Backend\FlexSlider', 'addImageCount')
 		),
         'global_operations' => array
-        (
+        (            
+			'install' => array
+            (
+                'label'               => &$GLOBALS['TL_LANG']['tl_flex_slider']['install'],
+                'href'                => 'key=install',
+                'class'               => 'header_install',
+				'icon'  			  => 'changelog.gif',
+            ),
             'all' => array
             (
                 'label' 			=> &$GLOBALS['TL_LANG']['MSC']['all'],

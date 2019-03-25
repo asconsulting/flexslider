@@ -23,7 +23,8 @@ array_insert($GLOBALS['BE_MOD']['flexslider'], 0, array
 ( 
 	'flexslider' => array
 	(
-		'tables' => array('tl_flex_slider', 'tl_flex_image')
+		'tables' => array('tl_flex_slider', 'tl_flex_image'),
+		'install' => array('FlexSlider\Backend\FlexSlider', 'installFlexslider')
 	)
 ));
 

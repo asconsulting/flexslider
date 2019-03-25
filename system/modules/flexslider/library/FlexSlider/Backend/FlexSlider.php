@@ -13,6 +13,7 @@
  
 namespace FlexSlider\Backend;
 
+use FlexSlider\Installer;
 use Contao\FilesModel;
 use Contao\Backend as Contao_Backend;
 use Contao\DataContainer;
@@ -20,6 +21,12 @@ use Contao\DataContainer;
 
 class FlexSlider extends Contao_Backend
 {
+	
+	public function installFlexslider() {
+		$objInstaller = new Installer();
+		$boolSuccess = $objInstaller->install();
+		return ($boolSuccess ? "FlexSlider has been installed" : "Failed to install FlexSlider.");
+	}
 	
 	public function addImageCount($row, $label) {
 		$objImage = $this->Database->prepare("SELECT COUNT(*) AS count FROM tl_flex_image WHERE pid=?")->execute($row['id']);
