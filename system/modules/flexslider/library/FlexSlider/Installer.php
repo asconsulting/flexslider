@@ -42,7 +42,7 @@ class Installer extends \Controller
 		$strError = false;
 		
 		$fh = fopen(TL_ROOT .'/files/flexslider-master.zip', 'w');
-		$ch = curl_init()
+		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, "https://github.com/woocommerce/FlexSlider/archive/master.zip"); 
 		curl_setopt($ch, CURLOPT_FILE, $fh); 
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); 
