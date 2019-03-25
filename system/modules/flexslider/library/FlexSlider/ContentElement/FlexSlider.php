@@ -99,7 +99,7 @@ class FlexSlider extends Contao_ContentElement {
 			}
 			$this->Template->images = $arrImages;
 		} else {
-			return;
+			return 'Flexslider not found';
 		}
 	}
 	
