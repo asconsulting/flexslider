@@ -27,5 +27,6 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['flexslider'] = array
     'exclude'                 => true,
     'inputType'               => 'radio',
     'foreignKey'              => 'tl_flex_slider.title',
-    'eval'                    => array('mandatory'=>true)
+    'eval'                    => array('mandatory'=>true),
+	'sql'                     => "int(10) unsigned NOT NULL default '0'"
 );
