@@ -56,8 +56,7 @@ $GLOBALS['TL_DCA']['tl_flex_slider'] = array
                 'label'               => &$GLOBALS['TL_LANG']['tl_flex_slider']['install'],
                 'href'                => 'key=install',
                 'class'               => 'header_install',
-				'icon'  			  => 'changelog.gif',
-                'button_callback'     => array('FlexSlider\Backend\FlexSlider', 'installIcon')
+				'icon'  			  => 'changelog.gif'
             ),
             'all' => array
             (
