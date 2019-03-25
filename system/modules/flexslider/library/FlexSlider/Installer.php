@@ -55,7 +55,9 @@ class Installer extends \Controller
 			return "<h4>Unable to get ZIP file</h4>" .$strError;
 		}
 		
-		\File::putContent('/files/flexslider-master.zip', $binRawData);
+		file_put_contents(TL_ROOT .'/files/flexslider-master.zip', $binRawData);
+		
+	//	\File::putContent('/files/flexslider-master.zip', $binRawData);
 		if (is_readable(TL_ROOT .'/files/flexslider-master.zip')) {
 			$objZipReader = new ZipReader('/files/flexslider-master.zip');
 			while ($objZipReader->next()) {
