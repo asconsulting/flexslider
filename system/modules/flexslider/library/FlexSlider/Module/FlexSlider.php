@@ -27,7 +27,7 @@ class FlexSlider extends Contao_Module {
      * Template
      * @var string
      */
-    protected $strTemplate = 'flexSlider_default';
+    protected $strTemplate = 'mod_flexslider';
 
     /**
      * Display a wildcard in the back end
@@ -50,7 +50,7 @@ class FlexSlider extends Contao_Module {
 		// Fallback to the default template
 		if ($this->flexSlider_template == '')
 		{
-			$this->flexSlider_template = 'flexSlider_default';
+			$this->flexSlider_template = 'mod_flexslider';
 		}
 
 		$this->strTemplate = $this->flexSlider_template;
