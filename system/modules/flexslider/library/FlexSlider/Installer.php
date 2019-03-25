@@ -77,8 +77,10 @@ class Installer extends \Controller
 			$objFolder = new \Folder('files/flexslider');
 			while ($objZipReader->next()) {
 				if (substr($objZipReader->file_name, 0, 17) == 'FlexSlider-master') {
-					echo substr($objZipReader->file_name, 17) .'<br>';
-					//\File::putContent('/files/flexslider' .substr($objZipReader->file_name, 17), $objZipReader->unzip());
+					$strFilename = substr($objZipReader->file_name, 18);
+					if ($strFilename) {
+						\File::putContent('files/flexslider/' .$strFilename, $objZipReader->unzip());
+					}
 				}
 			}
 
