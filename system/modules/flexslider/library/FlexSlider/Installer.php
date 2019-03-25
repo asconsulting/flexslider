@@ -73,8 +73,8 @@ class Installer extends \Controller
 		
 	//	\File::putContent('/files/flexslider-master.zip', $binRawData);
 		if (is_readable(TL_ROOT .'/files/flexslider-master.zip')) {
-			$objZipReader = new ZipReader('/files/flexslider-master.zip');
-			$objFolder = new \Folder('/files/flexslider');
+			$objZipReader = new ZipReader('files/flexslider-master.zip');
+			$objFolder = new \Folder('files/flexslider');
 			while ($objZipReader->next()) {
 				if (substr($objZipReader->file_name, 0, 17) == 'FlexSlider-master') {
 					echo substr($objZipReader->file_name, 17) .'<br>';
@@ -83,7 +83,7 @@ class Installer extends \Controller
 			}
 
 			die("Maybe?");
-			
+			/*
 			$zip = new \ZipArchive;
 			if ($zip->open(TL_ROOT .'/files/flexslider-master.zip') === TRUE) {
 				$zip->extractTo(TL_ROOT .'/var/cache/flexslider/');
@@ -105,6 +105,7 @@ class Installer extends \Controller
 				}
 				
 			}
+			*/
 		} else {
 			die ("Zip not readable");
 		}
