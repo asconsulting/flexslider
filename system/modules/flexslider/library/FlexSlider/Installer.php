@@ -57,7 +57,7 @@ class Installer extends \Controller
 				
 			}
 		} else {
-			
+			die "Zip not readable";
 		}
 		return $boolSuccess;
     }
