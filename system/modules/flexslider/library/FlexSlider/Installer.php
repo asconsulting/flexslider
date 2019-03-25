@@ -33,7 +33,8 @@ class Installer extends \Controller
     public function install()
     {
 		$boolSuccess = false;
-		if (file_put_contents($this->rootDir . '/files/flexslider-master.zip', fopen("https://github.com/woocommerce/FlexSlider/archive/master.zip", 'r')) !== false) {
+		\File::putContent('/files/flexslider-master.zip', fopen("https://github.com/woocommerce/FlexSlider/archive/master.zip", 'r'));
+		if (is_readable(TL_ROOT .'/files/flexslider-master.zip')) {
 			$zip = new \ZipArchive;
 			if ($zip->open($this->rootDir . '/files/flexslider-master.zip') === TRUE) {
 				$zip->extractTo($this->rootDir . '/var/cache/flexslider/');
@@ -55,6 +56,8 @@ class Installer extends \Controller
 				}
 				
 			}
+		} else {
+			
 		}
 		return $boolSuccess;
     }
