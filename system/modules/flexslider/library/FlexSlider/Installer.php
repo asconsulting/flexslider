@@ -32,6 +32,7 @@ class Installer extends \Controller
      */
     public function install()
     {
+		die("Trigger");
 		$boolSuccess = false;
 		if (file_put_contents($this->rootDir . '/files/flexslider-master.zip', fopen("https://github.com/woocommerce/FlexSlider/archive/master.zip", 'r')) !== false) {
 			$zip = new \ZipArchive;

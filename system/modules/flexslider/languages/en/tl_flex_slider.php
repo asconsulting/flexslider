@@ -44,6 +44,7 @@ $GLOBALS['TL_LANG']['tl_flex_slider']['publish_legend']   		= 'Publish';
 /**
  * Buttons
  */
+$GLOBALS['TL_LANG']['tl_flex_slider']['install']    			= array('Instal FlexSlider', 'Installs FlexSlider from GitHub.');
 $GLOBALS['TL_LANG']['tl_flex_slider']['new']    				= array('New slideshow', 'Create a new slideshow');
 $GLOBALS['TL_LANG']['tl_flex_slider']['edit']   				= array('Edit slideshow pictures', 'Edit pictures of this slideshow ID %s');
 $GLOBALS['TL_LANG']['tl_flex_slider']['editheader']   			= array('Edit slideshow', 'Edit this slideshow ID %s');
