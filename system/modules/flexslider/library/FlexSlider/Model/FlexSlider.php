@@ -17,18 +17,11 @@
 namespace Contao;
 
 
-/**
- * Class ModuleFlexSlider
- *
- * @copyright  Jozef Dvorský
- * @author     Jozef Dvorský
- * @package    Controller
- */
-class FlexSliderModel extends \Model {
+class FlexSlider extends \Model {
 
     /**
      * Fix Contao 3.4 issue
      */
-    protected static $strTable = 'tl_flexSlider'; 
+    protected static $strTable = 'tl_flex_slider'; 
 }
 ?>

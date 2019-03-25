@@ -106,7 +106,7 @@ class FlexImage extends Contao_Backend
     	}
    
     	if ($this->Input->get('act'))  {
-			$objConfig = $this->Database->prepare("SELECT c.pid, p.imgLinks, p.imgDesc FROM tl_flexPictures c, tl_flexSlider p WHERE c.id=? AND p.id=c.pid")->execute($dc->id);
+			$objConfig = $this->Database->prepare("SELECT c.pid, p.imgLinks, p.imgDesc FROM tl_flex_image c, tl_flexSlider p WHERE c.id=? AND p.id=c.pid")->execute($dc->id);
     		if ($objConfig->imgLinks) {
 				$GLOBALS['TL_DCA']['tl_flex_image']['palettes']['default'] = str_replace('singleSRC', 'singleSRC;{link_legend},linkTarget,fullsize;', $GLOBALS['TL_DCA']['tl_flex_image']['palettes']['default']);
 			}
