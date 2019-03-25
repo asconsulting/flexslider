@@ -35,7 +35,7 @@ class FlexSlider extends Contao_ContentElement {
     /**
      * Generate module
      */
-    protected function compile() {
+    protected function generate() {
 
 		$arrImages = array();
 		
