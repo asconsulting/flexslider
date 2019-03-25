@@ -89,6 +89,8 @@ class FlexSlider extends Contao_Backend
 			$title = str_replace('Install', 'Update/Re-install', $title);
 		};
 		
+		
+		return $title;
 		return '<a href="'.$this->addToUrl($href).'" title="'.specialchars($title).'"'.$attributes.'>'.\Image::getHtml($icon, $label).'</a> ';
 	}	
 	
