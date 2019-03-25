@@ -11,17 +11,10 @@
             "homepage":"https://andrewstevens.consulting"
         }
     ],
-	"repositories": [ 
-        {
-            "type": "vcs",
-            "url": "https://github.com/woocommerce/FlexSlider"
-        }    
-    ],
     "require":{
         "php": "~5.4 || ~7.0",
         "contao/core-bundle": "^3.5.2 || ~4.4",
-        "contao-community-alliance/composer-plugin": "~2.4 || ~3.0",
-		"woocommerce/FlexSlider": "^2.7"
+        "contao-community-alliance/composer-plugin": "~2.4 || ~3.0"
     },
     "require-dev": {
         "contao/manager-plugin": "^2.0"
