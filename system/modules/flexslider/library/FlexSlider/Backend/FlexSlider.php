@@ -16,6 +16,7 @@ namespace FlexSlider\Backend;
 use FlexSlider\Installer;
 use Contao\FilesModel;
 use Contao\Backend as Contao_Backend;
+use Contao\File;
 use Contao\DataContainer;
 
 
