@@ -115,9 +115,5 @@ class FlexImage extends Contao_Backend
 			}
 		}
 	}
-	
-	public static function updatePublished() {
-		Database::getInstance()->prepare("UPDATE tl_flex_image SET published='1' WHERE start <= ? AND (stop >= ? OR stop='')")->execute(time(), time());
-		Database::getInstance()->prepare("UPDATE tl_flex_image SET published='' WHERE stop <= ? AND stop!=''")->execute(time());
-	}
+
 }
