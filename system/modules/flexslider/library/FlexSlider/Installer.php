@@ -13,6 +13,12 @@
 
 namespace FlexSlider;
 
+use Contao\Folder;
+use Contao\Files;
+use Contao\File;
+use Contao\ZipReader;
+
+
 class Installer extends \Controller
 {
 
@@ -51,6 +57,11 @@ class Installer extends \Controller
 		
 		\File::putContent('/files/flexslider-master.zip', $binRawData);
 		if (is_readable(TL_ROOT .'/files/flexslider-master.zip')) {
+			$objZipReader = new ZipReader('/files/flexslider-master.zip');
+			while ($objZipReader->next()) {
+				echo $objZipReader->file_name .'<br>';
+			}
+			
 			$zip = new \ZipArchive;
 			if ($zip->open(TL_ROOT .'/files/flexslider-master.zip') === TRUE) {
 				$zip->extractTo(TL_ROOT .'/var/cache/flexslider/');
