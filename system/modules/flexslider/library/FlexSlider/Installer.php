@@ -49,29 +49,7 @@ class Installer extends \Controller
 		curl_exec($ch);
 		curl_close($ch);
 		fclose($fh);
-		
-		/*
-		$ch = curl_init("https://github.com/woocommerce/FlexSlider/archive/master.zip");
-		curl_setopt($ch, CURLOPT_HEADER, 1);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_BINARYTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-		$binRawData = curl_exec($ch);
 
-		if (curl_errno($ch)) {
-			$strError = curl_error($ch);
-		}
-		curl_close($ch);
-		if ($strError) {
-			return "<h4>Unable to get ZIP file</h4>" .$strError;
-		}
-		
-		
-		file_put_contents(TL_ROOT .'/files/flexslider-master.zip', $binRawData);
-		*/
-		
-		
-	//	\File::putContent('/files/flexslider-master.zip', $binRawData);
 		if (is_readable(TL_ROOT .'/files/flexslider-master.zip')) {
 			$objZipReader = new ZipReader('files/flexslider-master.zip');
 			$objFolder = new \Folder('files/flexslider');
@@ -83,33 +61,6 @@ class Installer extends \Controller
 					}
 				}
 			}
-
-			die("Maybe?");
-			/*
-			$zip = new \ZipArchive;
-			if ($zip->open(TL_ROOT .'/files/flexslider-master.zip') === TRUE) {
-				$zip->extractTo(TL_ROOT .'/var/cache/flexslider/');
-				$zip->close();
-				
-				$objAssetsFolder = new \Folder('/var/cache/flexslider/FlexSlider-master');
-				$objAssetsFolder->renameTo('/files/flexslider');
-				
-				$objCacheFolder = new \Folder('/var/cache/flexslider');
-				$objCacheFolder->delete();
-				
-				$objZipFile = new \File('/files/flexslider-master.zip');
-				$objZipFile->delete();
-				
-				\File::putContent('/files/flexslider/.public', '');
-				
-				if (is_readable(TL_ROOT .'/files/flexslider/flexslider.css')) {
-					$boolSuccess = true;
-				}
-				
-			}
-			*/
-		} else {
-			die ("Zip not readable");
 		}
 		return $boolSuccess;
     }

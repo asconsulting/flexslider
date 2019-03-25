@@ -71,6 +71,26 @@ class FlexSlider extends Contao_Backend
 		return $varValue;
 	}
 	
+	/**
+	 * Return the "toggle visibility" button
+	 * @param array
+	 * @param string
+	 * @param string
+	 * @param string
+	 * @param string
+	 * @param string
+	 * @return string
+	 */
+	public function installIcon($row, $href, $label, $title, $icon, $attributes)
+	{
+		$objFile = new File('files/flexslider/flexslider.css');
+		if ($objFile) {
+			$label = str_replace('Install', 'Update/Re-install', $label);
+		};
+		
+		return $label;
+	}	
+	
 	
 	/**
 	 * Return the "toggle visibility" button
