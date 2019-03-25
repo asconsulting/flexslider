@@ -38,7 +38,7 @@ $GLOBALS['FE_MOD']['flexslider']['flexslider'] 	= 'FlexSlider\Module\FlexSlider'
 /**
  * Content Element
  */
-$GLOBALS['TL_CTE']['media']['flexslider'] 		= 'FlexSlider\ContentElement\Flexslider';
+$GLOBALS['TL_CTE']['media']['flexslider'] 		= 'FlexSlider\ContentElement\FlexSlider';
 
 
 /**
