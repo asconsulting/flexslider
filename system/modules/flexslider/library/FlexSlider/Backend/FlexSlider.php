@@ -82,16 +82,14 @@ class FlexSlider extends Contao_Backend
 	 * @param string
 	 * @return string
 	 */
-	public function installIcon($row, $href, $label, $title, $icon, $attributes)
+	public function installIcon($href, $label, $title, $icon, $attributes)
 	{
 		$objFile = new File('files/flexslider/flexslider.css');
 		if ($objFile) {
 			$label = str_replace('Install', 'Update/Re-install', $label);
 		};
 		
-		echo '<a href="'.$this->addToUrl($href).'" title="'.specialchars($title).'"'.$attributes.'>'.\Image::getHtml($icon, $label).'</a> ';
-		
-		return '<a href="'.$this->addToUrl($href).'" title="'.specialchars($title).'"'.$attributes.'>'.\Image::getHtml($icon, $label).'</a> ';
+		return '<a href="'.$this->addToUrl($href).'" title="'.specialchars($title).'"'.$attributes.'>'.\Image::getHtml('changelog.gif', $label).'</a> ';
 	}	
 	
 	
