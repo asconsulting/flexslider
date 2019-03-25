@@ -64,6 +64,9 @@ class Installer extends \Controller
 				}
 			}
 			unset($objZipReader);
+			
+			\File::putContent('files/flexslider/.public', '');
+			
 			$objZipFile = new File('files/flexslider-master.zip');
 			$objZipFile->delete();
 		}
