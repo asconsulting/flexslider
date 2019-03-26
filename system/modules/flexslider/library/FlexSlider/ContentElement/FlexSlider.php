@@ -45,8 +45,8 @@ class FlexSlider extends Contao_ContentElement {
 		$objFlexImage = FlexImageModel::findBy('pid', $this->flexslider, array('return' => 'Collection'));
 
 		if ($objFlexSlider) {
-			$GLOBALS['TL_CSS'][] = Environment::get('url'). '/flexslider/flexslider.css';
-			$GLOBALS['TL_JAVASCRIPT'][] = Environment::get('url'). '/flexslider/jquery.flexslider-min.js';
+			$GLOBALS['TL_CSS'][] = Environment::get('url'). '/files/flexslider/flexslider.css';
+			$GLOBALS['TL_JAVASCRIPT'][] = Environment::get('url'). '/files/flexslider/jquery.flexslider-min.js';
 			$this->Template->configuration = $objFlexSlider->row();
 			if ($objFlexSlider->jqeasing) {
 				$GLOBALS['TL_JAVASCRIPT'][] = 'https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js';
