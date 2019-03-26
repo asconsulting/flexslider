@@ -1,32 +1,29 @@
-<section class="<?php echo $this->class; ?> block"<?php echo $this->cssID; ?><?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
+<div class="<?php echo $this->class; ?> block"<?php echo $this->cssID; ?><?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
     <?php if ($this->headline): ?>
         <<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>>
     <?php endif; ?>
 
-    <?php if ($this->ifPictures == true): ?>
-
-        <?php foreach ($this->configuration as $configuration): ?><?php endforeach; ?>
-        
-        <?php if ($configuration['carousel'] == false): ?>
-        <div class="<?php echo $configuration['css_theme']; ?>">
-        <div id="<?php echo $configuration['alias']; ?>" class="flexslider">
+    <?php if ($this->images): ?>
+        <?php if ($this->configuration['carousel'] == false): ?>
+        <div class="<?php echo $this->configuration['css_theme']; ?>">
+        <div id="<?php echo $this->configuration['alias']; ?>" class="flexslider">
           <ul class="slides">
-        <?php foreach ($this->pictures as $pictures): 
-		      	if ($pictures['linkTarget'] == '' && $pictures['attributes'] == ''): ?>
+        <?php foreach ($this->images as $arrImage): 
+		      	if ($arrImage['linkTarget'] == '' && $arrImage['attributes'] == ''): ?>
 		     		<li>
-                    <img alt="<?php echo $pictures['alt']; ?>" src="<?php echo $pictures['singleSRC']; ?>" />
-					<?php if ($pictures['description'] != ''): ?>
-						<div<?php echo $pictures['cssID']; ?> class="flex-caption<?php if ($configuration['imgDesc'] == true && $pictures['fadeDesc'] == true): echo ' fade'.$configuration['alias'].' initial' ?><?php endif; ?><?php echo $pictures['cssCLASS']; ?>">
-                           <div class="caption_title_line"><?php echo $pictures['description']; ?></div>
+                    <img alt="<?php echo $arrImage['alt']; ?>" src="<?php echo $arrImage['singleSRC']; ?>" />
+					<?php if ($arrImage['description'] != ''): ?>
+						<div<?php echo $arrImage['cssID']; ?> class="flex-caption<?php if ($this->configuration['imgDesc'] == true && $arrImage['fadeDesc'] == true): echo ' fade'.$this->configuration['alias'].' initial' ?><?php endif; ?><?php echo $arrImage['cssCLASS']; ?>">
+                           <div class="caption_title_line"><?php echo $arrImage['description']; ?></div>
 						</div>
 						<?php endif; ?>
 					</li>
 			  	<?php else: ?>
 					<li>
-                    <a<?php echo $pictures['linkTarget'].$pictures['attributes']?>><img alt="<?php echo $pictures['alt'];?>" src="<?php echo $pictures['singleSRC'];?>" /></a>
-					<?php if ($pictures['description'] != ''): ?>
-						<div<?php echo $pictures['cssID']; ?> class="flex-caption<?php if ($configuration['imgDesc'] == true && $pictures['fadeDesc'] == true): echo ' fade'.$configuration['alias'].' initial' ?><?php endif; ?><?php echo $pictures['cssCLASS']; ?>">
-                           <div class="caption_title_line"><?php echo $pictures['description']; ?></div>
+                    <a<?php echo $arrImage['linkTarget'].$arrImage['attributes']?>><img alt="<?php echo $arrImage['alt'];?>" src="<?php echo $arrImage['singleSRC'];?>" /></a>
+					<?php if ($arrImage['description'] != ''): ?>
+						<div<?php echo $arrImage['cssID']; ?> class="flex-caption<?php if ($this->configuration['imgDesc'] == true && $arrImage['fadeDesc'] == true): echo ' fade'.$this->configuration['alias'].' initial' ?><?php endif; ?><?php echo $arrImage['cssCLASS']; ?>">
+                           <div class="caption_title_line"><?php echo $arrImage['description']; ?></div>
 						</div>
 						<?php endif; ?>
 					</li>
@@ -36,25 +33,25 @@
         </div>
         </div>
         <?php else: ?>
-         <div id="<?php echo $configuration['alias']; ?>" class="<?php echo $configuration['css_theme']; ?>">
+         <div id="<?php echo $this->configuration['alias']; ?>" class="<?php echo $this->configuration['css_theme']; ?>">
         <div id="slider" class="flexslider">
           <ul class="slides">
         <?php foreach ($this->pictures as $pictures): 
-		      	if ($pictures['linkTarget'] == '' && $pictures['attributes'] == ''):?>
+		      	if ($arrImage['linkTarget'] == '' && $arrImage['attributes'] == ''):?>
 		     		<li>
-                    <img alt="<?php echo $pictures['alt']; ?>" src="<?php echo $pictures['singleSRC']; ?>" />
-					<?php if ($pictures['description'] != ''): ?>
-						<div<?php echo $pictures['cssID']; ?> class="flex-caption<?php if ($configuration['imgDesc'] == true && $pictures['fadeDesc'] == true): echo ' fade'.$configuration['alias'].' initial' ?><?php endif; ?><?php echo $pictures['cssCLASS']; ?>">
-                           <div class="caption_title_line"><?php echo $pictures['description']; ?></div>
+                    <img alt="<?php echo $arrImage['alt']; ?>" src="<?php echo $arrImage['singleSRC']; ?>" />
+					<?php if ($arrImage['description'] != ''): ?>
+						<div<?php echo $arrImage['cssID']; ?> class="flex-caption<?php if ($this->configuration['imgDesc'] == true && $arrImage['fadeDesc'] == true): echo ' fade'.$this->configuration['alias'].' initial' ?><?php endif; ?><?php echo $arrImage['cssCLASS']; ?>">
+                           <div class="caption_title_line"><?php echo $arrImage['description']; ?></div>
 						</div>
 						<?php endif; ?>
 					</li>
 			  	<?php else: ?>
 					<li>
-                    <a<?php echo $pictures['linkTarget'].$pictures['attributes']?>><img alt="<?php echo $pictures['alt'];?>" src="<?php echo $pictures['singleSRC'];?>" /></a>
-					<?php if ($pictures['description'] != ''): ?>
-						<div<?php echo $pictures['cssID']; ?> class="flex-caption<?php if ($configuration['imgDesc'] == true && $pictures['fadeDesc'] == true): echo ' fade'.$configuration['alias'].' initial' ?><?php endif; ?><?php echo $pictures['cssCLASS']; ?>">
-                           <div class="caption_title_line"><?php echo $pictures['description'] ?></div>
+                    <a<?php echo $arrImage['linkTarget'].$arrImage['attributes']?>><img alt="<?php echo $arrImage['alt'];?>" src="<?php echo $arrImage['singleSRC'];?>" /></a>
+					<?php if ($arrImage['description'] != ''): ?>
+						<div<?php echo $arrImage['cssID']; ?> class="flex-caption<?php if ($this->configuration['imgDesc'] == true && $arrImage['fadeDesc'] == true): echo ' fade'.$this->configuration['alias'].' initial' ?><?php endif; ?><?php echo $arrImage['cssCLASS']; ?>">
+                           <div class="caption_title_line"><?php echo $arrImage['description'] ?></div>
 						</div>
 						<?php endif; ?>
 					</li>
@@ -63,9 +60,9 @@
           </ul>
         </div>
         <div id="carousel" class="flexslider">
-           <ul class="slides" style="margin-left: -<?php echo $configuration['itemMargin']?>px">
+           <ul class="slides" style="margin-left: -<?php echo $this->configuration['itemMargin']?>px">
         <?php foreach ($this->pictures as $pictures): ?>
-          <?php echo '<li style="margin-left: '.$configuration['itemMargin'].'px"><img alt="'.$pictures['alt'].'" src="'.$pictures['singleSRC'].'" />'; ?> 
+          <?php echo '<li style="margin-left: '.$this->configuration['itemMargin'].'px"><img alt="'.$arrImage['alt'].'" src="'.$arrImage['singleSRC'].'" />'; ?> 
         <?php endforeach; ?>
           </ul>
         </div>
@@ -78,42 +75,42 @@
 </section>
 
 
-<?php if ($configuration['carousel'] == false): ?>
+<?php if ($this->configuration['carousel'] == false): ?>
 <script>
 (function($) {
 $(window).load(function() {
-  $("#<?php echo $configuration['alias']; ?>").flexslider({
-	slideshowSpeed: <?php echo $configuration['slideshowSpeed']; ?>,
-	animationSpeed: <?php echo $configuration['animationSpeed']; ?>,
-    animation: "<?php echo $configuration['animation']; ?>",
-	direction: "<?php echo $configuration['direction']; ?>",
-	<?php if ($configuration['jqeasing'] != ''): ?>
-    <?php echo 'easing: "'.$configuration['jqeasing'].'",' . "\n"; ?>
+  $("#<?php echo $this->configuration['alias']; ?>").flexslider({
+	slideshowSpeed: <?php echo $this->configuration['slideshowSpeed']; ?>,
+	animationSpeed: <?php echo $this->configuration['animationSpeed']; ?>,
+    animation: "<?php echo $this->configuration['animation']; ?>",
+	direction: "<?php echo $this->configuration['direction']; ?>",
+	<?php if ($this->configuration['jqeasing'] != ''): ?>
+    <?php echo 'easing: "'.$this->configuration['jqeasing'].'",' . "\n"; ?>
 	<?php endif; ?>
-	<?php if ($configuration['controlNav'] == true): ?>
+	<?php if ($this->configuration['controlNav'] == true): ?>
     <?php echo 'controlNav: false,' . "\n"; ?>
 	<?php endif; ?>
-	<?php if ($configuration['directionNav'] == true): ?>
+	<?php if ($this->configuration['directionNav'] == true): ?>
     <?php echo 'directionNav: false,' . "\n"; ?>
 	<?php endif; ?>
-	<?php if ($configuration['randomize'] == true): ?>
+	<?php if ($this->configuration['randomize'] == true): ?>
     <?php echo 'randomize: true,' . "\n"; ?>
     <?php else: echo 'randomize: false,' . "\n"; ?>
 	<?php endif; ?>
-	<?php if ($configuration['pauseOnHover'] == true): ?>
+	<?php if ($this->configuration['pauseOnHover'] == true): ?>
     <?php echo 'pauseOnHover: true,' . "\n"; ?>
     <?php else: echo 'pauseOnHover: false,' . "\n"; ?>
 	<?php endif; ?>
-	<?php if ($configuration['imgDesc'] == true): ?>
+	<?php if ($this->configuration['imgDesc'] == true): ?>
 	start: function(slider) {
-		$(".fade<?php echo $configuration['alias']; ?>").fadeTo(700, 1);
-		$(".fade<?php echo $configuration['alias']; ?>").removeClass('initial');
+		$(".fade<?php echo $this->configuration['alias']; ?>").fadeTo(700, 1);
+		$(".fade<?php echo $this->configuration['alias']; ?>").removeClass('initial');
     },
 	before: function(slider) {
-        $(".fade<?php echo $configuration['alias']; ?>").hide();
+        $(".fade<?php echo $this->configuration['alias']; ?>").hide();
     },
 	after: function(slider) {
-        $('.fade<?php echo $configuration['alias']; ?>').fadeTo(700, 1);
+        $('.fade<?php echo $this->configuration['alias']; ?>').fadeTo(700, 1);
      },
 	<?php endif; ?>
 	pauseOnAction: true,
@@ -127,50 +124,49 @@ $(window).load(function() {
 <script>
 (function($) {
 $(window).load(function() {
-  $("#<?php echo $configuration['alias']; ?> #carousel").flexslider({
+  $("#<?php echo $this->configuration['alias']; ?> #carousel").flexslider({
 	animation: "slide",
     controlNav: false,
     animationLoop: false,
     slideshow: false,
-    itemWidth: <?php echo $configuration['itemWidth'] ?>,
-    itemMargin: <?php echo $configuration['itemMargin']; ?>,
-	asNavFor: '#<?php echo $configuration['alias']; ?> #slider'
+    itemWidth: <?php echo $this->configuration['itemWidth'] ?>,
+    itemMargin: <?php echo $this->configuration['itemMargin']; ?>,
+	asNavFor: '#<?php echo $this->configuration['alias']; ?> #slider'
   });
-  $("#<?php echo $configuration['alias']; ?> #slider").flexslider({
-	slideshowSpeed: <?php echo $configuration['slideshowSpeed']; ?>,
-	animationSpeed: <?php echo $configuration['animationSpeed']; ?>,
-    animation: "<?php echo $configuration['animation']; ?>",
-	direction: "<?php echo $configuration['direction']; ?>",
-	<?php if ($configuration['jqeasing'] != ''): ?>
+  $("#<?php echo $this->configuration['alias']; ?> #slider").flexslider({
+	slideshowSpeed: <?php echo $this->configuration['slideshowSpeed']; ?>,
+	animationSpeed: <?php echo $this->configuration['animationSpeed']; ?>,
+    animation: "<?php echo $this->configuration['animation']; ?>",
+	direction: "<?php echo $this->configuration['direction']; ?>",
+	<?php if ($this->configuration['jqeasing'] != ''): ?>
 	<?php echo 'useCSS: false,' . "\n"; ?>
-    <?php echo 'easing: "'.$configuration['jqeasing'].'",' . "\n"; ?>
+    <?php echo 'easing: "'.$this->configuration['jqeasing'].'",' . "\n"; ?>
 	<?php endif; ?>
-	<?php if ($configuration['pauseOnHover'] == true): ?>
+	<?php if ($this->configuration['pauseOnHover'] == true): ?>
     <?php echo 'pauseOnHover: true,' . "\n"; ?>
     <?php else: echo 'pauseOnHover: false,' . "\n"; ?>
 	<?php endif; ?>
-	<?php if ($configuration['directionNav'] == true): ?>
+	<?php if ($this->configuration['directionNav'] == true): ?>
     <?php echo 'directionNav: false,' . "\n"; ?>
 	<?php endif; ?>
-	<?php if ($configuration['imgDesc'] == true): ?>
+	<?php if ($this->configuration['imgDesc'] == true): ?>
 	start: function(slider) {
-		$(".fade<?php echo $configuration['alias']; ?>").fadeTo(700, 1);
-		$(".fade<?php echo $configuration['alias']; ?>").removeClass('initial');
+		$(".fade<?php echo $this->configuration['alias']; ?>").fadeTo(700, 1);
+		$(".fade<?php echo $this->configuration['alias']; ?>").removeClass('initial');
     },
 	before: function(slider) {
-        $(".fade<?php echo $configuration['alias']; ?>").hide();
+        $(".fade<?php echo $this->configuration['alias']; ?>").hide();
     },
 	after: function(slider) {
-        $('.fade<?php echo $configuration['alias']; ?>').fadeTo(700, 1);
+        $('.fade<?php echo $this->configuration['alias']; ?>').fadeTo(700, 1);
      },
 	<?php endif; ?>
 	pauseOnAction: true,
 	controlNav: false,
     animationLoop: true,
     slideshow: true,
-	sync: "#<?php echo $configuration['alias']; ?> #carousel"
+	sync: "#<?php echo $this->configuration['alias']; ?> #carousel"
   });
 });
 })(jQuery);
-</script>
-<?php endif; ?>
+</div>

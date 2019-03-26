@@ -22,9 +22,6 @@ ClassLoader::addClasses(array
 	
 	// Content Element
 	'FlexSlider\ContentElement\FlexSlider'				=> 'system/modules/flexslider/library/FlexSlider/ContentElement/FlexSlider.php',
-	
-	// Frontend classes
-	'FlexSlider\Frontend\FlexSlider'					=> 'system/modules/flexslider/library/FlexSlider/Frontend/FlexSlider.php',
 
 	// Elements
 	'FlexSlider\Elements\FlexSlider' 					=> 'system/modules/flexslider/library/FlexSlider/Elements/FlexSlider.php',
