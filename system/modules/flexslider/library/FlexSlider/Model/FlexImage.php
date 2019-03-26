@@ -14,6 +14,8 @@
 
 namespace FlexSlider\Model;
 
+use Contao\Database;
+
 
 class FlexImage extends \Model {
 
