@@ -56,9 +56,6 @@ class FlexSlider extends Contao_ContentElement {
 				while($objFlexImage->next()) {
 					$objFile = FilesModel::findByUuid($objFlexImage->singleSRC);
 					
-					var_dump($objFile);
-					echo "<hr>";
-					
 					if ($objFile) {
 						$arrImage = array();
 						$strImagePath = $objFile->path;
@@ -101,7 +98,6 @@ class FlexSlider extends Contao_ContentElement {
 					}
 				}
 			}
-			die();
 			$this->Template->images = $arrImages;
 		} else {
 			return 'Flexslider not found';
