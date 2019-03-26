@@ -11,22 +11,22 @@
         <div class="<?php echo $configuration['css_theme']; ?>">
         <div id="<?php echo $configuration['alias']; ?>" class="flexslider">
           <ul class="slides">
-        <?php foreach ($this->pictures as $pictures): 
-		      	if ($pictures['linkTarget'] == '' && $pictures['attributes'] == ''): ?>
+        <?php foreach ($this->images as $arrImage): 
+		      	if ($arrImage['linkTarget'] == '' && $arrImage['attributes'] == ''): ?>
 		     		<li>
-                    <img alt="<?php echo $pictures['alt']; ?>" src="<?php echo $pictures['singleSRC']; ?>" />
-					<?php if ($pictures['description'] != ''): ?>
-						<div<?php echo $pictures['cssID']; ?> class="flex-caption<?php if ($configuration['imgDesc'] == true && $pictures['fadeDesc'] == true): echo ' fade'.$configuration['alias'].' initial' ?><?php endif; ?><?php echo $pictures['cssCLASS']; ?>">
-                           <div class="caption_title_line"><?php echo $pictures['description']; ?></div>
+                    <img alt="<?php echo $arrImage['alt']; ?>" src="<?php echo $arrImage['singleSRC']; ?>" />
+					<?php if ($arrImage['description'] != ''): ?>
+						<div<?php echo $arrImage['cssID']; ?> class="flex-caption<?php if ($configuration['imgDesc'] == true && $arrImage['fadeDesc'] == true): echo ' fade'.$configuration['alias'].' initial' ?><?php endif; ?><?php echo $arrImage['cssCLASS']; ?>">
+                           <div class="caption_title_line"><?php echo $arrImage['description']; ?></div>
 						</div>
 						<?php endif; ?>
 					</li>
 			  	<?php else: ?>
 					<li>
-                    <a<?php echo $pictures['linkTarget'].$pictures['attributes']?>><img alt="<?php echo $pictures['alt'];?>" src="<?php echo $pictures['singleSRC'];?>" /></a>
-					<?php if ($pictures['description'] != ''): ?>
-						<div<?php echo $pictures['cssID']; ?> class="flex-caption<?php if ($configuration['imgDesc'] == true && $pictures['fadeDesc'] == true): echo ' fade'.$configuration['alias'].' initial' ?><?php endif; ?><?php echo $pictures['cssCLASS']; ?>">
-                           <div class="caption_title_line"><?php echo $pictures['description']; ?></div>
+                    <a<?php echo $arrImage['linkTarget'].$arrImage['attributes']?>><img alt="<?php echo $arrImage['alt'];?>" src="<?php echo $arrImage['singleSRC'];?>" /></a>
+					<?php if ($arrImage['description'] != ''): ?>
+						<div<?php echo $arrImage['cssID']; ?> class="flex-caption<?php if ($configuration['imgDesc'] == true && $arrImage['fadeDesc'] == true): echo ' fade'.$configuration['alias'].' initial' ?><?php endif; ?><?php echo $arrImage['cssCLASS']; ?>">
+                           <div class="caption_title_line"><?php echo $arrImage['description']; ?></div>
 						</div>
 						<?php endif; ?>
 					</li>
@@ -40,21 +40,21 @@
         <div id="slider" class="flexslider">
           <ul class="slides">
         <?php foreach ($this->pictures as $pictures): 
-		      	if ($pictures['linkTarget'] == '' && $pictures['attributes'] == ''):?>
+		      	if ($arrImage['linkTarget'] == '' && $arrImage['attributes'] == ''):?>
 		     		<li>
-                    <img alt="<?php echo $pictures['alt']; ?>" src="<?php echo $pictures['singleSRC']; ?>" />
-					<?php if ($pictures['description'] != ''): ?>
-						<div<?php echo $pictures['cssID']; ?> class="flex-caption<?php if ($configuration['imgDesc'] == true && $pictures['fadeDesc'] == true): echo ' fade'.$configuration['alias'].' initial' ?><?php endif; ?><?php echo $pictures['cssCLASS']; ?>">
-                           <div class="caption_title_line"><?php echo $pictures['description']; ?></div>
+                    <img alt="<?php echo $arrImage['alt']; ?>" src="<?php echo $arrImage['singleSRC']; ?>" />
+					<?php if ($arrImage['description'] != ''): ?>
+						<div<?php echo $arrImage['cssID']; ?> class="flex-caption<?php if ($configuration['imgDesc'] == true && $arrImage['fadeDesc'] == true): echo ' fade'.$configuration['alias'].' initial' ?><?php endif; ?><?php echo $arrImage['cssCLASS']; ?>">
+                           <div class="caption_title_line"><?php echo $arrImage['description']; ?></div>
 						</div>
 						<?php endif; ?>
 					</li>
 			  	<?php else: ?>
 					<li>
-                    <a<?php echo $pictures['linkTarget'].$pictures['attributes']?>><img alt="<?php echo $pictures['alt'];?>" src="<?php echo $pictures['singleSRC'];?>" /></a>
-					<?php if ($pictures['description'] != ''): ?>
-						<div<?php echo $pictures['cssID']; ?> class="flex-caption<?php if ($configuration['imgDesc'] == true && $pictures['fadeDesc'] == true): echo ' fade'.$configuration['alias'].' initial' ?><?php endif; ?><?php echo $pictures['cssCLASS']; ?>">
-                           <div class="caption_title_line"><?php echo $pictures['description'] ?></div>
+                    <a<?php echo $arrImage['linkTarget'].$arrImage['attributes']?>><img alt="<?php echo $arrImage['alt'];?>" src="<?php echo $arrImage['singleSRC'];?>" /></a>
+					<?php if ($arrImage['description'] != ''): ?>
+						<div<?php echo $arrImage['cssID']; ?> class="flex-caption<?php if ($configuration['imgDesc'] == true && $arrImage['fadeDesc'] == true): echo ' fade'.$configuration['alias'].' initial' ?><?php endif; ?><?php echo $arrImage['cssCLASS']; ?>">
+                           <div class="caption_title_line"><?php echo $arrImage['description'] ?></div>
 						</div>
 						<?php endif; ?>
 					</li>
@@ -65,7 +65,7 @@
         <div id="carousel" class="flexslider">
            <ul class="slides" style="margin-left: -<?php echo $configuration['itemMargin']?>px">
         <?php foreach ($this->pictures as $pictures): ?>
-          <?php echo '<li style="margin-left: '.$configuration['itemMargin'].'px"><img alt="'.$pictures['alt'].'" src="'.$pictures['singleSRC'].'" />'; ?> 
+          <?php echo '<li style="margin-left: '.$configuration['itemMargin'].'px"><img alt="'.$arrImage['alt'].'" src="'.$arrImage['singleSRC'].'" />'; ?> 
         <?php endforeach; ?>
           </ul>
         </div>
