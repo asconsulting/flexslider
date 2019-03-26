@@ -63,14 +63,14 @@ class FlexSlider extends Contao_Module {
 			
 			$this->Template->configuration = $objFlexSlider->row();
 			
-			if (!in_array(Environment::get('url'). '/files/flexslider/flexslider.css', $GLOBALS['TL_CSS']) {
+			if (!in_array(Environment::get('url'). '/files/flexslider/flexslider.css', $GLOBALS['TL_CSS'])) {
 				$GLOBALS['TL_CSS'][] = Environment::get('url'). '/files/flexslider/flexslider.css';
 			}
-			if (!in_array(Environment::get('url'). '/files/flexslider/jquery.flexslider-min.js', $GLOBALS['TL_JAVASCRIPT']) {
+			if (!in_array(Environment::get('url'). '/files/flexslider/jquery.flexslider-min.js', $GLOBALS['TL_JAVASCRIPT'])) {
 				$GLOBALS['TL_JAVASCRIPT'][] = Environment::get('url'). '/files/flexslider/jquery.flexslider-min.js';
 			}
 			if ($objFlexSlider->jqeasing) {
-				if (!in_array('https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js', $GLOBALS['TL_JAVASCRIPT']) {
+				if (!in_array('https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js', $GLOBALS['TL_JAVASCRIPT'])) {
 					$GLOBALS['TL_JAVASCRIPT'][] = 'https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js';
 				}
 			}
