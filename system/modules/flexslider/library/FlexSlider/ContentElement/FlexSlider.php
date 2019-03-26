@@ -52,6 +52,8 @@ class FlexSlider extends Contao_ContentElement {
 				$GLOBALS['TL_JAVASCRIPT'][] = 'https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js';
 			}
 			
+			var_dump($objFlexImage);
+			
 			if ($objFlexImage->count()) {
 				while($objFlexImage->next()) {
 					$objFile = FilesModel::findByUuid($objFlexImage->singleSRC);
