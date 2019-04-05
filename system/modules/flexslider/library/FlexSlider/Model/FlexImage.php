@@ -26,8 +26,8 @@ class FlexImage extends \Model {
 	
 	
 	public static function updatePublished() {
-		Database::getInstance()->prepare("UPDATE tl_flex_image SET published='1' WHERE start <= ? AND (stop >= ? OR stop='')")->execute(time(), time());
-		Database::getInstance()->prepare("UPDATE tl_flex_image SET published='' WHERE stop <= ? AND stop!=''")->execute(time());
+		Database::getInstance()->prepare("UPDATE tl_flex_image SET published='1' WHERE (start <= ? AND start != '') AND (stop >= ? OR stop = '')")->execute(time(), time());
+		Database::getInstance()->prepare("UPDATE tl_flex_image SET published='' WHERE stop <= ? AND stop != ''")->execute(time());
 	}
 	
 }
