@@ -171,7 +171,7 @@ $GLOBALS['TL_DCA']['tl_flex_image'] = array
 			'label'                   => &$GLOBALS['TL_LANG']['tl_flex_image']['cssID'],
 			'exclude'                 => true,
 			'inputType'               => 'text',
-			'eval'                    => array('multiple'=>true, 'size'=>2, 'tl_class'=>'w50'),
+			'eval'                    => array('multiple'=>true, 'size'=>2, 'tl_class'=>'clr w50'),
 			'sql'                     => "varchar(255) NOT NULL default ''"
 		),
 		'linkUrl' => array
@@ -195,14 +195,14 @@ $GLOBALS['TL_DCA']['tl_flex_image'] = array
 			'label'                   => &$GLOBALS['TL_LANG']['tl_flex_image']['published'],
 			'inputType'               => 'checkbox',
 			'filter'                  => true,
-			'eval'                    => array('doNotCopy'=>true),
+			'eval'                    => array('doNotCopy'=>true, 'tl_class'=>'clr m12'),
 			'sql'                     => "char(1) NOT NULL default ''"
 		),
 		'start' => array
 		(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_flex_image']['start'],
 			'inputType'               => 'text',
-			'eval'                    => array('rgxp'=>'datim', 'datepicker'=>true, 'tl_class'=>'w50 wizard'),
+			'eval'                    => array('rgxp'=>'datim', 'datepicker'=>true, 'tl_class'=>'clr w50 wizard'),
 			'sql'                     => "varchar(10) NOT NULL default ''"
 		),
 		'stop' => array
