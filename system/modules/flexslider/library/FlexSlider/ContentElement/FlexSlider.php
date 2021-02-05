@@ -38,8 +38,6 @@ class FlexSlider extends Contao_ContentElement {
     protected function compile() {
 
 		$arrImages = array();
-		
-		FlexImageModel::updatePublished();	
 	
 		$objFlexSlider = FlexSliderModel::findByPk($this->flexslider, array('return' => 'Model'));
 		$objFlexImage = FlexImageModel::findBy('pid', $this->flexslider, array('order' => 'sorting', 'return' => 'Collection'));
