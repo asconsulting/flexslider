@@ -36,7 +36,7 @@
          <div id="<?php echo $this->configuration['alias']; ?>" class="<?php echo $this->configuration['css_theme']; ?>">
         <div id="slider" class="flexslider">
           <ul class="slides">
-        <?php foreach ($this->pictures as $pictures): 
+        <?php foreach ($this->images as $arrImage): 
 		      	if ($arrImage['linkTarget'] == '' && $arrImage['attributes'] == ''):?>
 		     		<li>
                     <img alt="<?php echo $arrImage['alt']; ?>" src="<?php echo $arrImage['singleSRC']; ?>" />
@@ -61,7 +61,7 @@
         </div>
         <div id="carousel" class="flexslider">
            <ul class="slides" style="margin-left: -<?php echo $this->configuration['itemMargin']?>px">
-        <?php foreach ($this->pictures as $pictures): ?>
+        <?php foreach ($this->images as $arrImage): ?>
           <?php echo '<li style="margin-left: '.$this->configuration['itemMargin'].'px"><img alt="'.$arrImage['alt'].'" src="'.$arrImage['singleSRC'].'" />'; ?> 
         <?php endforeach; ?>
           </ul>
